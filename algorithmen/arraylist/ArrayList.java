@@ -1,5 +1,5 @@
 public class ArrayList {
-    // AA
+    // BB
     int[] list;
 
     void add(int value) {
