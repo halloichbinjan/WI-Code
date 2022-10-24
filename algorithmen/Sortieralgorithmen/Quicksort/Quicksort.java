@@ -16,8 +16,8 @@ public class Quicksort {
             return;
         }
         int pivot = pArr[to];
-        int left = from;
-        int right = to - 1;
+        int left = from - 1;
+        int right = to;
         if (left >= right) {
             if (pArr[left] > pivot) {
 
@@ -29,22 +29,22 @@ public class Quicksort {
         }
 
         while (left < right) {
-            for (; left < right && pArr[left] < pivot; left++)
+            left++;
+            for (; left < to && pArr[left] < pivot; left++)
                 ;
-            for (; right > left && pArr[right] >= pivot; right--)
+            right--;
+            for (; right > from - 1 && pArr[right] >= pivot; right--)
                 ;
             int value = pArr[left];
             pArr[left] = pArr[right];
             pArr[right] = value;
         }
 
-        if (pArr[left] >= pivot) {
-            pArr[to] = pArr[left];
-            pArr[left] = pivot;
-        } else {
-            pArr[to] = pArr[left] + 1;
-            pArr[left + 1] = pivot;
-        }
+        int value = pArr[left];
+        pArr[left] = pArr[right];
+        pArr[right] = value;
+        pArr[to] = pArr[left];
+        pArr[left] = pivot;
 
         qsHelper(pArr, from, left - 1);
         qsHelper(pArr, left + 1, to);
