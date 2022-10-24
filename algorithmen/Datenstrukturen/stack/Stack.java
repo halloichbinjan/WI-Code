@@ -2,7 +2,7 @@ public class Stack {
 
     class StackElement {
         StackElement next;
-        StackElement previous;
+        // StackElement previous;
         int value;
     }
 
@@ -19,8 +19,7 @@ public class Stack {
         if (isEmpty())
             top = newStackElement;
         else {
-            top.next = newStackElement;
-            newStackElement.previous = top;
+            newStackElement.next = top;
             top = newStackElement;
 
         }
@@ -28,8 +27,7 @@ public class Stack {
 
     void pop() {
         if (!isEmpty()) {
-            top.previous.next = null;
-            top = top.previous;
+            top = top.next;
         }
     }
 
@@ -37,7 +35,7 @@ public class Stack {
         StackElement current = top;
         while (current != null) {
             System.out.println(current.value);
-            current = current.previous;
+            current = current.next;
         }
     }
 }
