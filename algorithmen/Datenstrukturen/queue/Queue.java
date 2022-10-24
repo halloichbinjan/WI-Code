@@ -8,10 +8,7 @@ public class Queue {
     }
 
     boolean isEmpty() {
-        boolean empty = false;
-        if (root == null)
-            empty = true;
-        return empty;
+        return root == null;
     }
 
     void offer(int v) {
