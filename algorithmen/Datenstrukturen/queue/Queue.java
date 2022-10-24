@@ -25,9 +25,18 @@ public class Queue {
         }
     }
 
-    void poll() {
-        if (!isEmpty())
-            root = root.next;
+    int poll() {
+        if (!isEmpty()) {
+            int res = root.value;
+            if (root.next != null)
+                root = root.next;
+            else
+                root = null;
+
+            return res;
+        } else {
+            return -1;
+        }
     }
 
     void printQueue() {
