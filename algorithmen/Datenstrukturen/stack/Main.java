@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         createSampleStack();
-        sampleStack.printStackReverse();
+        sampleStack.printStackTopToBottom();
     }
 
     static void createSampleStack() {

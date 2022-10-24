@@ -25,13 +25,18 @@ public class Stack {
         }
     }
 
-    void pop() {
+    int pop() {
         if (!isEmpty()) {
+            int res = top.value;
             top = top.next;
+            return res;
+        } else {
+            // Wenn Stack leer ist:
+            return -1;
         }
     }
 
-    void printStackReverse() {
+    void printStackTopToBottom() {
         StackElement current = top;
         while (current != null) {
             System.out.println(current.value);
