@@ -2,7 +2,6 @@ public class Stack {
 
     class StackElement {
         StackElement next;
-        // StackElement previous;
         int value;
     }
 
