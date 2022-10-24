@@ -40,7 +40,6 @@ public class Insertionsort_new {
             // vor (/"links") von ihm. Tritt das nicht mehr ein ist die Stelle gefunden,
             // an der es eingefügt werden muss und es die Schleife ist beendet.
             while (j > 0 && elementToSort < arr[j - 1]) {
-
                 // Damit keine Elemente ersetzt werden, die noch benötigt werden, müssen alle
                 // Elemente, mit denen hier verglichen werden und nach denen
                 // entsprechend nicht eingefügt werden, einen Index nach rechts verschoben
@@ -63,7 +62,7 @@ public class Insertionsort_new {
             }
 
             // Wir haben die passende Stelle gefunden und den dort aktuellen Wert bereits
-            // einen nach rechts kopiert (genau wie alle vorher).
+            // nach rechts kopiert (genau wie alle vorher).
             // Wenn wir jetzt das aktuelle Element durch das zu sortierende ersetzen, sind
             // alle Elemente zwischen dieser Stelle und der Stelle an der wir
             // gestartet sind einen nach rechts verschoben worden und das Ausgangselement an

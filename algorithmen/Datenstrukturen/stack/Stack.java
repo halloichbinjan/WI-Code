@@ -9,10 +9,7 @@ public class Stack {
     StackElement top;
 
     boolean isEmpty() {
-        boolean empty = false;
-        if (top == null)
-            empty = true;
-        return empty;
+        return top == null;
     }
 
     void push(int v) {
