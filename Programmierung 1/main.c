@@ -13,11 +13,18 @@ int kuerzen(int zaehler, int nenner);
 void arethMittel();
 void arethMittel2();
 float kapitalwert(float startkapital, int jahre, float zinssatz);
+void test();
+int teilt(int a, int b);
+int summe(int a);
+int summe2(int a);
+int maximum(int a, int b);
+int minimum(int a, int b);
+int quersumme(int a);
 
 int main(void)
 {
-    float f = kapitalwert(1400, 8, 0.02);
-    printf("Das Kapital nach beträgt %.2f€", f);
+    int i = minimum(100, 99);
+    printf("%d", i);
     return EXIT_SUCCESS;
 }
 
@@ -367,4 +374,110 @@ float kapitalwert(float startkapital, int jahre, float zinssatz)
     }
 
     return ergebnis;
+}
+
+// Aufgabe 3 - 1
+/*
+    1) a=b++=c++;
+    -> Die Syntax dieser Funktion ist falsch, da b++ also b + 1 nicht c++ also c + 1 zugewiesen werden kann.
+    -> Man könnte sie folgendermaßen umformen:
+    -> a = b++
+    -> b = c++
+    -> Außerdem müssten alle 3 Variablen deklariert und b und c initialisiert werden.
+
+    2) a+=b++;
+    -> Da das ++ hinter dem b steht, wird die 1 (welche durch das ++ ausgedrückt wird) erst addiert, nachdem Rechnung erfolgt.
+    -> Somit wird erst a = a + b gesetzt und danach b + 1 gerechnet.
+    -> Eine vorherige Deklaration von a und b ist demnach sinnvoll.
+
+    3) a+=--b;
+    -> Diese Anweisung entspricht der Anweisung a = a + (b - 1).
+    -> Da das -- vor dem b steht wird 1 subtrahiert bevor die Rechnung erfolgt.
+    -> Somit wird erst b = b - 1 gerechnet und dann a = a + b gesetzt.
+
+    4) if (++a == b++)
+             printf("Ok.\n");
+    -> Es wird überprüft, ob a + 1  b entspricht. Erst danach wird b um 1 erhöht.
+    -> Ist dies der Fall wird "Ok" ausgegeben.
+
+
+    5) if (a || b)
+             printf("Ok.\n");
+    -> Es wird überprüft, ob entweder a oder b einen Wert haben, der nicht 0 ist.
+    -> Die Ausgabe erfolgt nur dann nicht, wenn sowohl a als auch b gleich 0 sind.
+    -> Eine Deklaration ist somit zwingend, eine Initalisierung sehr sinnvoll, aber nicht zwingend notwendig.
+    */
+
+// Aufgabe 3 - 2
+int teilt(int a, int b)
+{
+    // % Zeichen heißt Modulo
+    // -> b % a rechnet quasi b geteilt durch a und gibt dann den Rest zurück.
+    // Wenn es teilbar ist ist der Rest 0, wenn nicht eben nicht
+    if (b % a != 0)
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+// Aufgabe 3 - 3
+/*
+    Im if steht i=0 und nicht i==0.
+    Es wird also i auf 0 gesetzt.
+    0 entspricht in C immer false.
+    Somit kann nur die else aufgerufen werden.
+    Dort kommt es dann zum Fehler der eigentlich mit der if abgefangen werden soll,
+    da 1 nicht durch 0 geteilt werden kann.
+ */
+
+// Aufgabe 3 - 4.1
+// Gaußsche Summerformel btw
+int summe(int a)
+{
+    // int ergebnis = 0;
+    // for (int i = 1; i <= a; i++)
+    // {
+    //     ergebnis = ergebnis + i;
+    // }
+    // return ergebnis;
+
+    // Einfacher (Gaußsche Summenformel):
+    return (a * a + a) / 2;
+}
+
+// Aufgabe 3 - 4.2
+int summe2(int a)
+{
+    int ergebnis = 0;
+    for (int i = 1; i <= a; i += 2)
+    {
+        ergebnis = ergebnis + i;
+    }
+    return ergebnis;
+}
+
+// Aufgabe 3 - 4.3.1
+int maximum(int a, int b)
+{
+    if (a > b)
+        return a;
+    return b;
+}
+
+// Aufgabe 3 - 4.3.2
+int minimum(int a, int b)
+{
+    if (a < b)
+        return a;
+    return b;
+}
+
+// Aufgabe 3 - 4.4
+
+// Aufgabe 3 - 4.5
+int quersumme(int a)
+{
+    if (a <)
 }
