@@ -1,0 +1,1 @@
+loat startkapital, int jahre, float zinssatz
