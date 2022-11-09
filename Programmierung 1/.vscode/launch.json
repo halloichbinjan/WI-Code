@@ -1,6 +1,13 @@
 {
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch test",
+      "request": "launch",
+      "mainClass": "test",
+      "projectName": "Programmierung 1_b8d7c7a6"
+    },
+    {
       "name": "C/C++: gcc Aktive Datei erstellen und debuggen",
       "type": "cppdbg",
       "request": "launch",

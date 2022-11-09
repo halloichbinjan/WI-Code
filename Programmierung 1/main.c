@@ -20,11 +20,14 @@ int summe2(int a);
 int maximum(int a, int b);
 int minimum(int a, int b);
 int quersumme(int a);
+int istPrimzahl(int a);
+void primfaktorzerlegung(int a);
 
 int main(void)
 {
-    int i = minimum(100, 99);
-    printf("%d", i);
+    primfaktorzerlegung(999);
+    // int i = istPrimzahl(5);
+    // printf("%d", i);
     return EXIT_SUCCESS;
 }
 
@@ -479,5 +482,59 @@ int minimum(int a, int b)
 // Aufgabe 3 - 4.5
 int quersumme(int a)
 {
-    if (a <)
+    if (a <= 0)
+    {
+        return -1;
+    }
+    int sum = 0;
+    while (a > 0)
+    {
+        sum += a % 10;
+        a /= 10;
+    }
+    return sum;
+}
+
+// Aufgabe 3 - 7.1
+int istPrimzahl(int a)
+{
+    if (a < 0)
+    {
+        return -1;
+    }
+    if (a == 0 || a == 1)
+    {
+        return 0;
+    }
+    for (int i = 2; i < a; i++)
+    {
+        if (a % i == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// Aufgabe 3 - 7.3
+void primfaktorzerlegung(int a)
+{
+    if (a <= 1)
+    {
+        printf("Bitte eine Zahl größer 1 eingeben.");
+        return;
+    }
+    int i = 2;
+    while (a > 1)
+    {
+        if (a % i == 0)
+        {
+            printf("%d ", i);
+            a /= i;
+        }
+        else
+        {
+            i++;
+        }
+    }
 }
