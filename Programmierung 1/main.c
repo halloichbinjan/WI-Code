@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <ctype.h>
 
 void sizes();
 void calculator();
@@ -22,12 +23,17 @@ int minimum(int a, int b);
 int quersumme(int a);
 int istPrimzahl(int a);
 void primfaktorzerlegung(int a);
+void swap(double *a, double *b);
+void umbuchung(int *ptrKontoA, int *ptrKontoB, unsigned int centBetrag);
+void printAsciiTable();
+void test();
+int maxOfArray(int array[], int length);
+void primzahlen(int *array, int length);
+void primzahlenHelper(int arrayLength);
 
 int main(void)
 {
-    primfaktorzerlegung(999);
-    // int i = istPrimzahl(5);
-    // printf("%d", i);
+    primzahlenHelper(1000);
     return EXIT_SUCCESS;
 }
 
@@ -478,6 +484,18 @@ int minimum(int a, int b)
 }
 
 // Aufgabe 3 - 4.4
+int maxOfArray(int array[], int length)
+{
+    int max = array[0];
+    for (int i = 1; i < length; i++)
+    {
+        if (array[i] > max)
+        {
+            max = array[i];
+        }
+    }
+    return max;
+}
 
 // Aufgabe 3 - 4.5
 int quersumme(int a)
@@ -494,6 +512,46 @@ int quersumme(int a)
     }
     return sum;
 }
+
+// Aufgabe 3 - 5
+void printAsciiTable()
+{
+    char hex;
+    printf("Es wird der ASCII-Code aufgelistet.\n");
+    printf("Wird hexadezimale Darstellung gewuenscht? (j/n)\n");
+    scanf("%c", &hex);
+    printf(" \n");
+    if (hex == 'j')
+    {
+        printf("Tabelle: Erweiterter 8-Bit-ASCII-Code. Hexadezimale Darstellung.\n");
+        for (int i = 0; i < 256; i++)
+        {
+            if (isprint(i))
+                printf(" %c %02x\t", i, i);
+            else
+                printf("   %02x\t", i);
+        }
+    }
+    else
+    {
+        printf("Tabelle: Erweiterter 8-Bit-ASCII-Code. Dezimale Darstellung.\n");
+
+        for (int i = 0; i < 256; i++)
+            if (isprint(i))
+                printf(" %c %03d\t", i, i);
+            else
+                printf("   %03d\t", i);
+    }
+}
+
+// Aufgabe 3 - 6
+/*
+1.
+    a != b ? printf("a ist ungleich b") : printf("a ist gleich b");
+
+2.
+    a >= b ? max=a : max=b;
+*/
 
 // Aufgabe 3 - 7.1
 int istPrimzahl(int a)
@@ -516,6 +574,8 @@ int istPrimzahl(int a)
     return 1;
 }
 
+// Aufgabe 3 - 7.2
+
 // Aufgabe 3 - 7.3
 void primfaktorzerlegung(int a)
 {
@@ -537,4 +597,61 @@ void primfaktorzerlegung(int a)
             i++;
         }
     }
+}
+
+// Aufgabe 3 - 8
+void primzahlen(int *array, int length)
+{
+    int primzahlenArray[length];
+    int primzahlenLength = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (istPrimzahl(array[i]))
+        {
+            primzahlenArray[primzahlenLength] = array[i];
+            printf("%d ", primzahlenArray[primzahlenLength]);
+            primzahlenLength++;
+        }
+    }
+}
+
+// Gehört zu 3 - 8
+// Kann auch in der main gemacht werden.
+void primzahlenHelper(int arrayLength)
+{
+    int array[arrayLength];
+    int length = sizeof(array) / sizeof(array[0]);
+    for (int i = 0; i < length; i++)
+    {
+        array[i] = i + 1;
+    }
+    primzahlen(&array, length);
+}
+
+// Warm up 4, Aufgabe 2
+void swap(double *a, double *b)
+{
+    double temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("a: %f, b: %f", *a, *b);
+}
+
+// Warm up 4, Aufgabe 3
+void umbuchung(int *ptrKontoA, int *ptrKontoB, unsigned int centBetrag)
+{
+    if (ptrKontoA != ptrKontoB)
+    {
+        *ptrKontoA -= centBetrag;
+        *ptrKontoB += centBetrag;
+    }
+    else
+    {
+        printf("Konten sind gleich!");
+    }
+    printf("Konto A: %d, Konto B: %d", *ptrKontoA, *ptrKontoB);
+}
+
+void test()
+{
 }

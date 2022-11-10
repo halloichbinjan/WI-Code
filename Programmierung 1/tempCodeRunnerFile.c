@@ -1,1 +1,1 @@
-loat startkapital, int jahre, float zinssatz
+                printf("   %04d   ", i);

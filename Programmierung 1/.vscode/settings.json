@@ -2,6 +2,8 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "files.associations": {
     "atomic": "c",
-    "bitset": "c"
+    "bitset": "c",
+    "__tuple": "c",
+    "array": "c"
   }
 }
