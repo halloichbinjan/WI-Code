@@ -33,7 +33,8 @@ void primzahlenHelper(int arrayLength);
 
 int main(void)
 {
-    primzahlenHelper(1000);
+    int i = teilt(1000, 0);
+    printf("%d", i);
     return EXIT_SUCCESS;
 }
 
@@ -423,12 +424,12 @@ int teilt(int a, int b)
     // % Zeichen heißt Modulo
     // -> b % a rechnet quasi b geteilt durch a und gibt dann den Rest zurück.
     // Wenn es teilbar ist ist der Rest 0, wenn nicht eben nicht
-    if (b % a != 0)
+    if (b % a == 0 && a != 0)
     {
-        return 0;
+        return 1;
     }
 
-    return 1;
+    return 0;
 }
 
 // Aufgabe 3 - 3
