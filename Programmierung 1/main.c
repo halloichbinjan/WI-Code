@@ -30,11 +30,14 @@ void test();
 int maxOfArray(int array[], int length);
 void primzahlen(int *array, int length);
 void primzahlenHelper(int arrayLength);
+void arrayCopy(int *array, int *copy, int length);
+int duplikat(int *array, int length);
 
 int main(void)
 {
-    int i = teilt(1000, 0);
-    printf("%d", i);
+    int array[10] = {1, 2, 3, 4, 5, 6, 7, 10, 9, 10};
+    int length = sizeof(array) / sizeof(array[0]);
+    printf("%d", duplikat(array, length));
     return EXIT_SUCCESS;
 }
 
@@ -651,6 +654,36 @@ void umbuchung(int *ptrKontoA, int *ptrKontoB, unsigned int centBetrag)
         printf("Konten sind gleich!");
     }
     printf("Konto A: %d, Konto B: %d", *ptrKontoA, *ptrKontoB);
+}
+
+// Warmp up 5, Aufgabe 3
+void arrayCopy(int *array, int *copy, int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        copy[i] = array[i];
+    }
+
+    // for (int i = 0; i < length; i++)
+    // {
+    //     printf("%d ", copy[i]);
+    // }
+}
+
+// Warmp up 5, Aufgabe 4
+int duplikat(int *array, int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        for (int j = i + 1; j < length; j++)
+        {
+            if (array[i] == array[j])
+            {
+                return array[i];
+            }
+        }
+    }
+    return -1;
 }
 
 void test()
