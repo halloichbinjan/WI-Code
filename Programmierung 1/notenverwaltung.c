@@ -22,7 +22,7 @@ void scanNoten(int *noten, int length)
 {
     for (int i = 0; i < length; i++)
     {
-        printf("Bitte geben Sie die Note %d ein: ", i + 1);
+        printf("Bitte geben Sie die Note für Student %d ein: ", i + 1);
         int note;
         scanf("%d", &note);
         if (note < 0 || note > 5)

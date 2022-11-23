@@ -34,12 +34,12 @@ void primzahlenHelper(int arrayLength);
 void arrayCopy(int *array, int *copy, int length);
 int duplikat(int *array, int length);
 void swapArray(float *array1, float *array2, int length);
-int istAnagram(const char *wort1, const char *wort2);
+int istAnagram(char *wort1, char *wort2);
 
 int main(void)
 {
-    char string1[] = "eimer";
-    char string2[] = "reimeh";
+    char string1[5] = "eimer";
+    char string2[5] = "reime";
     printf("%d", istAnagram(string1, string2));
 
     return EXIT_SUCCESS;
@@ -707,22 +707,11 @@ int istAnagram(const char *wort1, const char *wort2)
     int length1 = strlen(wort1);
     int length2 = strlen(wort2);
     if (length1 != length2)
-        return 0;
+        return
 
-    int anz1[256] = {0}, anz2[256] = {0};
+            int anz1[256] = {0}, anz2[256] = {0};
     for (int i = 0; i < length1; i++)
     {
         anz1[wort1[i]]++;
         anz2[wort2[i]]++;
     }
-    for (int i = 0; i < 256; i++)
-    {
-        if (anz1[i] != anz2[i])
-            return 0;
-    }
-    return 1;
-}
-
-void test()
-{
-}
