@@ -35,12 +35,22 @@ void arrayCopy(int *array, int *copy, int length);
 int duplikat(int *array, int length);
 void swapArray(float *array1, float *array2, int length);
 int istAnagram(const char *wort1, const char *wort2);
+int zeileGueltig(int spielfeld[9][9], int zeile);
+struct Bruch addiere(struct Bruch a, struct Bruch b);
+void eingabeBruch(struct Bruch *res);
+
+struct Bruch
+{
+    int zaehler;
+    int nenner;
+};
 
 int main(void)
 {
-    char string1[] = "eimer";
-    char string2[] = "reimeh";
-    printf("%d", istAnagram(string1, string2));
+
+    struct Bruch bruch1;
+    eingabeBruch(&bruch1);
+    printf("Dein Bruch: %d/%d", bruch1.zaehler, bruch1.nenner);
 
     return EXIT_SUCCESS;
 }
@@ -721,6 +731,49 @@ int istAnagram(const char *wort1, const char *wort2)
             return 0;
     }
     return 1;
+}
+
+// Warmp up 7, Aufgabe 1b)
+int zeileGueltig(int spielfeld[9][9], int zeile)
+{
+    for (int i = 0; i < 8; i++)
+    {
+        if (spielfeld[zeile][i] == 0)
+            return 0;
+        for (int j = i + 1; j < 9; j++)
+        {
+            if (spielfeld[zeile][i] == spielfeld[zeile][j])
+                return 0;
+        }
+    }
+    return 1;
+}
+
+// Warmp up 7, Aufgabe 2
+struct Bruch addiere(struct Bruch a, struct Bruch b)
+{
+    struct Bruch res;
+    if (a.nenner == b.nenner)
+    {
+        res.nenner = a.nenner;
+        res.zaehler = a.zaehler + b.zaehler;
+    }
+    else
+    {
+        res.nenner = a.nenner * b.nenner;
+        res.zaehler = (a.zaehler * b.nenner) + (b.zaehler * a.nenner);
+    }
+    kuerzen(res.zaehler, res.nenner);
+    return res;
+}
+
+// Warmp up 7, Aufgabe 3
+void eingabeBruch(struct Bruch *res)
+{
+    printf("Zähler: ");
+    scanf("%d", &res->zaehler);
+    printf("Nenner: ");
+    scanf("%d", &res->nenner);
 }
 
 void test()
