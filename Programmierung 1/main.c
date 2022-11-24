@@ -772,8 +772,11 @@ void eingabeBruch(struct Bruch *res)
 {
     printf("Zähler: ");
     scanf("%d", &res->zaehler);
-    printf("Nenner: ");
-    scanf("%d", &res->nenner);
+    do
+    {
+        printf("Nenner: ");
+        scanf("%d", &res->nenner);
+    } while (res->nenner == 0);
 }
 
 void test()
