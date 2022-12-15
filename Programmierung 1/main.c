@@ -48,9 +48,12 @@ struct Bruch
 int main(void)
 {
 
-    struct Bruch bruch1;
-    eingabeBruch(&bruch1);
-    printf("Dein Bruch: %d/%d", bruch1.zaehler, bruch1.nenner);
+    // struct Bruch bruch1;
+    // eingabeBruch(&bruch1);
+    // printf("Dein Bruch: %d/%d", bruch1.zaehler, bruch1.nenner);
+    char a = 'B';
+    char b = 'B';
+    printf("%d", cEquals(a, b));
 
     return EXIT_SUCCESS;
 }
@@ -217,6 +220,10 @@ int cEquals(char first, char second)
     if (first == second)
     {
         // printf("1");
+        return 1;
+    }
+    else if (toupper(first) == toupper(second))
+    {
         return 1;
     }
     else
