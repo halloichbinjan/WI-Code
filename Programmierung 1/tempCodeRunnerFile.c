@@ -1,11 +1,1 @@
-printf("%s\n", kunde.Vorname);
-    // printf("%s\n", kunde.Strasse);
-    // printf("%s\n", kunde.Hausnummer);
-    // printf("%s\n", kunde.PLZ);
-    // printf("%s\n", kunde.ort);
-    // printf("%s\n", kunde.festnetz);
-    // printf("%s\n", kunde.mobil);
-    // printf("%s\n", kunde.fax);
-    // printf("%s\n", kunde.email);
-    // printf("%s\n", kunde.geburtsdatum);
-    // printf("%s\n", kunde.kundennummer);
+getTag(datum)
